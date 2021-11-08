@@ -1,5 +1,4 @@
-from flask import Flask, jsonify, request
-from sqlalchemy.util.compat import ue
+from flask import Flask, jsonify
 from model import init_database, db_session
 from controller.userController import adminUser
 from controller.infoController import adminInfo
