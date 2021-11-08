@@ -1,7 +1,8 @@
 from flask import Flask, jsonify, request
 from sqlalchemy.util.compat import ue
 from model import init_database, db_session
-from model.userModel import Users, userSchema
+from controller.userController import adminUser
+from controller.infoController import adminInfo
 
 app = Flask(__name__)
 app.debug = True
@@ -11,7 +12,7 @@ app.debug = True
 # app 실행시 처음 한번만 실행
 def beforeFirstRequest():
     print('데이터베이스 연결')
-    init_database()
+    init_database()  # 데이터베이스 테이블 생성
 
 
 @app.teardown_appcontext
@@ -23,51 +24,13 @@ def tearDownAppContext(exeption):
     db_session.remove()
 
 
+app.register_blueprint(adminUser)
+app.register_blueprint(adminInfo)
+
+
 @app.route('/')
 def index():
     return jsonify({"message": "flask SQLAlchemy API SERVER"})
-
-
-@app.route('/users', methods=['POST'])
-def addUsers():
-    print(request.json)
-    userName = request.json['userName']
-    password = request.json['password']
-    email = request.json['email']
-
-    user = Users(userName, password, email)
-    db_session.add(user)
-    db_session.commit()
-    return userSchema.dump(user)
-
-
-@app.route('/users', methods=['GET'])
-def getUsers():
-    users = db_session.query(Users).all()
-    result = userSchema.dump(users, many=True)
-    return jsonify(result)
-
-
-@app.route('/users/<id>', methods=['PUT'])
-def updateUser(id):
-    user = db_session.query(Users).get(id)
-    userName = request.json['userName']
-    password = request.json['password']
-    email = request.json['email']
-
-    user.userName = userName
-    user.password = password
-    user.email = email
-    db_session.commit()
-    return userSchema.dump(user)
-
-
-@app.route('/users/<id>', methods=['DELETE'])
-def deleteUser(id):
-    user = db_session.query(Users).get(id)
-    db_session.delete(user)
-    db_session.commit()
-    return userSchema.dump(user)
 
 
 if __name__ == '__main__':

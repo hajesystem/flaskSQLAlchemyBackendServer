@@ -1,5 +1,5 @@
 from sqlalchemy import Column, String, Integer
-from marshmallow import Schema, fields
+from marshmallow import Schema
 from model import Base
 
 
@@ -17,10 +17,6 @@ class Users(Base):
 
 
 class UserSchema(Schema):
-    # id = fields.Str()
-    # userName = fields.Str()
-    # password = fields.Str()
-    # email = fields.Str()
     class Meta:
         fields = ('id', 'userName', 'password', 'email')
 

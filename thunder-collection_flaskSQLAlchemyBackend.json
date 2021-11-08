@@ -1,0 +1,189 @@
+{
+  "client": "Thunder Client",
+  "collectionName": "flaskSQLAlchemyBackend",
+  "dateExported": "2021-11-08T06:27:07.521Z",
+  "version": "1.1",
+  "folders": [],
+  "requests": [
+    {
+      "containerId": "",
+      "sortNum": 10000,
+      "headers": [
+        { "name": "Accept", "value": "*/*" },
+        {
+          "name": "User-Agent",
+          "value": "Thunder Client (https://www.thunderclient.io)"
+        }
+      ],
+      "colId": "dc116053-b57a-4cde-96ab-dba9ff7d0150",
+      "name": "add User",
+      "url": "localhost:4002/admin/user",
+      "method": "POST",
+      "modified": "2021-11-08T05:45:59.500Z",
+      "created": "2021-11-08T02:44:50.052Z",
+      "_id": "bfaa9d92-76be-4c45-8320-dcfe99d71b6a",
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n    \"userName\":\"kim70\",\n    \"password\":\"1234\",\n    \"email\":\"test44@test.com\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "containerId": "",
+      "sortNum": 20000,
+      "headers": [
+        { "name": "Accept", "value": "*/*" },
+        {
+          "name": "User-Agent",
+          "value": "Thunder Client (https://www.thunderclient.io)"
+        }
+      ],
+      "colId": "dc116053-b57a-4cde-96ab-dba9ff7d0150",
+      "name": "getAll User",
+      "url": "localhost:4002/admin/info",
+      "method": "GET",
+      "modified": "2021-11-08T06:20:23.904Z",
+      "created": "2021-11-08T02:44:50.052Z",
+      "_id": "9a443901-fdff-4e56-a40c-7f2f21056459",
+      "params": [],
+      "tests": []
+    },
+    {
+      "containerId": "",
+      "sortNum": 40000,
+      "headers": [
+        { "name": "Accept", "value": "*/*" },
+        {
+          "name": "User-Agent",
+          "value": "Thunder Client (https://www.thunderclient.io)"
+        }
+      ],
+      "colId": "dc116053-b57a-4cde-96ab-dba9ff7d0150",
+      "name": "update User",
+      "url": "localhost:4002/admin/user/1",
+      "method": "PUT",
+      "modified": "2021-11-08T05:51:18.545Z",
+      "created": "2021-11-08T02:44:50.052Z",
+      "_id": "3dc3c866-fa17-4e01-aea3-1ee734f1abc2",
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"email\": \"test@test.com\",\n  \"password\": \"1234\",\n  \"userName\": \"leesoo\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "containerId": "",
+      "sortNum": 50000,
+      "headers": [
+        { "name": "Accept", "value": "*/*" },
+        {
+          "name": "User-Agent",
+          "value": "Thunder Client (https://www.thunderclient.io)"
+        }
+      ],
+      "colId": "dc116053-b57a-4cde-96ab-dba9ff7d0150",
+      "name": "delete User",
+      "url": "localhost:4002/admin/user/11",
+      "method": "DELETE",
+      "modified": "2021-11-08T06:22:50.022Z",
+      "created": "2021-11-08T02:44:50.052Z",
+      "_id": "c3ccdfc9-4a9c-4718-8b56-f8d55e92fe56",
+      "params": [],
+      "tests": []
+    },
+    {
+      "containerId": "",
+      "sortNum": 60000,
+      "headers": [
+        { "name": "Accept", "value": "*/*" },
+        {
+          "name": "User-Agent",
+          "value": "Thunder Client (https://www.thunderclient.io)"
+        }
+      ],
+      "colId": "dc116053-b57a-4cde-96ab-dba9ff7d0150",
+      "name": "add Info",
+      "url": "localhost:4002/admin/info",
+      "method": "POST",
+      "modified": "2021-11-08T06:13:33.117Z",
+      "created": "2021-11-08T06:11:55.605Z",
+      "_id": "d2471260-6043-46b1-9815-7be6c62bb32a",
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n    \"sex\":\"남자\",\n    \"address\":\"서울 강북구\",\n    \"phone\":\"01032139638\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "containerId": "",
+      "sortNum": 70000,
+      "headers": [
+        { "name": "Accept", "value": "*/*" },
+        {
+          "name": "User-Agent",
+          "value": "Thunder Client (https://www.thunderclient.io)"
+        }
+      ],
+      "colId": "dc116053-b57a-4cde-96ab-dba9ff7d0150",
+      "name": "getAll Info",
+      "url": "localhost:4002/admin/user",
+      "method": "GET",
+      "modified": "2021-11-08T06:20:00.374Z",
+      "created": "2021-11-08T06:19:57.766Z",
+      "_id": "e2be2822-7ad2-4e25-a321-ec3cc21fe9df",
+      "params": [],
+      "tests": []
+    },
+    {
+      "containerId": "",
+      "sortNum": 80000,
+      "headers": [
+        { "name": "Accept", "value": "*/*" },
+        {
+          "name": "User-Agent",
+          "value": "Thunder Client (https://www.thunderclient.io)"
+        }
+      ],
+      "colId": "dc116053-b57a-4cde-96ab-dba9ff7d0150",
+      "name": "update Info",
+      "url": "localhost:4002/admin/info/1",
+      "method": "PUT",
+      "modified": "2021-11-08T06:22:19.818Z",
+      "created": "2021-11-08T06:20:38.816Z",
+      "_id": "ca187b85-3462-4dad-8942-f386521442d1",
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"sex\": \"여지\",\n  \"address\": \"서울 중구 을지로\",\n  \"phone\": \"01062564464\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "containerId": "",
+      "sortNum": 90000,
+      "headers": [
+        { "name": "Accept", "value": "*/*" },
+        {
+          "name": "User-Agent",
+          "value": "Thunder Client (https://www.thunderclient.io)"
+        }
+      ],
+      "colId": "dc116053-b57a-4cde-96ab-dba9ff7d0150",
+      "name": "delete Info",
+      "url": "localhost:4002/admin/info/2",
+      "method": "DELETE",
+      "modified": "2021-11-08T06:24:13.632Z",
+      "created": "2021-11-08T06:22:53.371Z",
+      "_id": "f9ef1f66-5673-4796-88a0-0bdd60771887",
+      "params": [],
+      "tests": []
+    }
+  ]
+}
