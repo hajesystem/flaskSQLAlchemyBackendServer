@@ -4,6 +4,3 @@
 * pip install SQLAlchemy
 * pip install marshmallow
 * pip install pymysql
-* pip install pyjwt
-* pip install bcrypt
-* pip install flask-cors
