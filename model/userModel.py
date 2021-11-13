@@ -1,5 +1,5 @@
-from sqlalchemy import Column, String, Integer
-from marshmallow import Schema
+from sqlalchemy import Column, String, Integer, Date, Boolean
+from marshmallow import Schema, fields
 from model import Base
 
 
@@ -9,16 +9,21 @@ class Users(Base):
     userName = Column(String(32), unique=True)
     password = Column(String(255))
     email = Column(String(80))
+    startDay = Column(Date)
+    accounting = Column(Boolean)
 
-    def __init__(self, userName, password, email):
+    def __init__(self, userName, password, email, startDay, accounting):
         self.userName = userName
         self.password = password
         self.email = email
+        self.startDay = startDay
+        self.accounting = accounting
 
 
 class UserSchema(Schema):
     class Meta:
-        fields = ('id', 'userName', 'password', 'email')
+        fields = ("id", "userName", "password",
+                  "email", "startDay", "accounting")
 
 
 userSchema = UserSchema()

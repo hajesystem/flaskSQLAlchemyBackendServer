@@ -1,4 +1,5 @@
 from flask import Blueprint, jsonify, request
+from sqlalchemy import insert, select
 from sqlalchemy.exc import SQLAlchemyError
 from model import db_session
 from model.userModel import Users, userSchema
@@ -8,8 +9,11 @@ adminUser = Blueprint('user', __name__, url_prefix='/admin')
 
 @adminUser.route('user', methods=['GET'])
 def getAll():
-    users = db_session.query(Users).all()
-    result = userSchema.dump(users, many=True)
+    # sql = db_session.query(Users).filter(Users.userName == "kimhanjun").first()
+    # result = userSchema.dump(users, many=True)
+    sql = select(Users).where(Users.userName == "kimhanjun")
+    aaa = db_session.scalar(sql)
+    result = userSchema.dump(aaa)
     return jsonify(result)
 
 
@@ -19,10 +23,15 @@ def add():
         userName = request.json['userName']
         password = request.json['password']
         email = request.json['email']
-        user = Users(userName, password, email)
-        db_session.add(user)
+        startDay = request.json['startDay']
+        accounting = bool(request.json['accounting'])
+        sql = insert(Users).values(userName=userName, password=password,
+                                   email=email, startDay=startDay, accounting=accounting)
+        db_session.execute(sql)
+        # user = Users(userName, password, email)
+        # db_session.add(user)
         db_session.commit()
-        return userSchema.dump(user)
+        return userSchema.dump(sql)
     except SQLAlchemyError as error:
         db_session.rollback()
         print("Error >>", error)
