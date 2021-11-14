@@ -1,5 +1,5 @@
 from sqlalchemy import Column, String, Integer, Date, Boolean
-from marshmallow import Schema, fields
+from marshmallow import Schema, post_load, fields
 from model import Base
 
 
@@ -24,6 +24,10 @@ class UserSchema(Schema):
     class Meta:
         fields = ("id", "userName", "password",
                   "email", "startDay", "accounting")
+
+    @post_load
+    def make_user(self, data, **kwargs):
+        return Users(**data)
 
 
 userSchema = UserSchema()
