@@ -46,16 +46,11 @@ def addLoad():
         load = request.json['load']
         userData = userSchema.load(load)
         print(userData.userName, userData.password)
-        # sql = insert(Users).values(userName=userData.us)
-        # db_session.execute(sql)
-        # user = Users(userName, password, email)
-        # db_session.add(user)
-    #     db_session.commit()
-        return jsonify({"state": "success"})
-    # except SQLAlchemyError as error:
-    #     db_session.rollback()
-    #     print("Error >>", error)
-    #     return jsonify({"error": str(error)})
+        return jsonify({"userName": userData.userName, "password": userData.password, "email": userData.email})
+    except SQLAlchemyError as error:
+        db_session.rollback()
+        print("Error >>", error)
+        return jsonify({"error": str(error)})
     finally:
         pass
 
