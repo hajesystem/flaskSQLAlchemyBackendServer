@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 from model import init_database, db_session
-from controller.userController import adminUser
-from controller.infoController import adminInfo
+from routers.user import adminUser
+from routers.info import adminInfo
 
 app = Flask(__name__)
 app.debug = True
